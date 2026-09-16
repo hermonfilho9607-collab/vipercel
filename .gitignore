@@ -1,0 +1,8 @@
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Referencia salva do Pinterest (pagina completa + chunks JS) - so serviu
+# pra extrair a direcao de estilo, nao tem valor daqui pra frente e e pesada
+Referencia.html
+Referencia_files/

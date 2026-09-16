@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Viper Cel | Assistência Técnica Especializada em Smartphones — São José da Lapa</title>
+<meta name="description" content="Assistência técnica especializada em smartphones no bairro Dom Pedro, São José da Lapa - MG. Troca de tela, bateria, placa e mais. Venda de celulares, seminovos e acessórios. +10 anos de mercado, garantia de 90 dias.">
+<meta name="theme-color" content="#0A0C16">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<!-- =========================================================================
+     VIPER CEL — site único (uma página)
+
+     AINDA FALTA / PENDENTE
+       1. Avaliação do Google: o texto colado pelo cliente ("4,957 avaliações")
+          provavelmente é "4,9 ★ (57 avaliações)" colado sem espaço/estrela.
+          Não usei esse número em lugar nenhum do site até confirmar — ver
+          nota junto à seção de Depoimentos abaixo. Quando confirmado, dá pra
+          adicionar como 4º dado em .heroi-estatisticas e como
+          "aggregateRating" no JSON-LD.
+       2. Redes sociais: cliente não passou Instagram/Facebook. O rodapé só
+          linka pro Google Maps por enquanto (dado real). Adicionar quando
+          tiver.
+       3. Fotografia: cliente vai gerar com IA e anexar depois (ver prompts
+          entregues à parte). Hoje o herói usa a logo (assets/logo.png,
+          fundo removido) + gradiente; a seção Loja tem UMA vitrine com
+          moldura pronta pra receber foto (ver comentário HTML na seção
+          .loja-vitrine). Trocar por <img> quando os arquivos existirem.
+       4. og:url / sitemap.xml / robots.txt apontam para
+          "https://vipercel.vercel.app" como placeholder de domínio — trocar
+          se o projeto for publicado em outro domínio.
+     ========================================================================= -->
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Viper Cel | Assistência Técnica Especializada em Smartphones">
+<meta property="og:description" content="Troca de tela, bateria, placa e mais. Venda de celulares, seminovos e acessórios. Bairro Dom Pedro, São José da Lapa - MG.">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://vipercel.vercel.app">
+<meta property="og:image" content="https://vipercel.vercel.app/assets/compartilhamento.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logotipo Viper Cel">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src https://maps.google.com https://www.google.com; connect-src 'none'">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/estilo.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ElectronicsStore",
+  "name": "Viper Cel",
+  "description": "Loja especializada em celulares e acessórios no bairro Dom Pedro, em São José da Lapa. Smartphones novos e seminovos, acessórios e assistência técnica especializada.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. João Alves da Costa, 317 - Dom Pedro",
+    "addressLocality": "São José da Lapa",
+    "addressRegion": "MG",
+    "postalCode": "33350-000",
+    "addressCountry": "BR"
+  },
+  "telephone": "+5531996506597",
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "19:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "17:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "09:00", "closes": "12:00" }
+  ],
+  "priceRange": "$$"
+}
+</script>
+
+<script>
+(function () {
+  var d = document.documentElement;
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  d.classList.add('js-anim');
+  setTimeout(function () {
+    var l = document.querySelectorAll('.entra, .entra-grade');
+    for (var i = 0; i < l.length; i++) l[i].classList.add('visivel');
+  }, 4000);
+})();
+</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24Zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.53.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42l-.47-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></symbol>
+  <symbol id="i-telefone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1l-2.2 2.3Z"/></symbol>
+  <symbol id="i-mapa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></symbol>
+  <symbol id="i-relogio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+  <symbol id="i-fechar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M5 5l14 14M19 5 5 19"/></symbol>
+  <symbol id="i-tela" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.5" width="14" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></symbol>
+  <symbol id="i-bateria" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="8" width="16" height="8" rx="2"/><path d="M21.5 10.5v3"/><path d="M6 11.5h4" stroke-width="1.75"/></symbol>
+  <symbol id="i-conector" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v5M15 2v5M7 7h10l-1.2 8.4a3 3 0 0 1-3 2.6h-1.6a3 3 0 0 1-3-2.6L7 7Z"/><path d="M12 18v4"/></symbol>
+  <symbol id="i-placa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 4v3M16 4v3M8 17v3M16 17v3M4 8h3M4 16h3M17 8h3M17 16h3"/><rect x="9" y="9" width="6" height="6" rx="1"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5A1.5 1.5 0 0 1 5.5 7h2l1-1.5h7L16.5 7h2A1.5 1.5 0 0 1 20 8.5v9A1.5 1.5 0 0 1 18.5 19h-13A1.5 1.5 0 0 1 4 17.5v-9Z"/><circle cx="12" cy="12.5" r="3.5"/></symbol>
+  <symbol id="i-alto-falante" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4v-5Z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 7a7.5 7.5 0 0 1 0 10"/></symbol>
+  <symbol id="i-loja" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5 5 4h14l1 5.5"/><path d="M3.5 9.5h17v9A1.5 1.5 0 0 1 19 20H5a1.5 1.5 0 0 1-1.5-1.5v-9Z"/><path d="M9 20v-5a3 3 0 0 1 6 0v5"/></symbol>
+  <symbol id="i-escudo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5.5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-estrela" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.4 6.9.7-5.2 4.7 1.5 6.8L12 17.7l-6.1 3.4 1.5-6.8-5.2-4.7 6.9-.7L12 2.5Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6"/></symbol>
+  <symbol id="i-etiqueta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 3H5.5A1.5 1.5 0 0 0 4 4.5v6c0 .4.16.78.44 1.06l9 9a1.5 1.5 0 0 0 2.12 0l6-6a1.5 1.5 0 0 0 0-2.12l-9-9A1.5 1.5 0 0 0 11.5 3Z"/><circle cx="8.5" cy="8.5" r="1.25" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-medalha" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 14.5 7.5 21l4.5-2.5 4.5 2.5-1.5-6.5"/></symbol>
+</svg>
+
+<!-- ---------- Cabeçalho ---------- -->
+<header class="cabecalho" id="cabecalho">
+  <div class="limite cabecalho-int">
+    <a class="marca" href="#topo" aria-label="Viper Cel — início">
+      <img src="assets/logo-icon.png" alt="" width="34" height="34">
+      <span class="marca-texto">VIPER<span>CEL</span></span>
+    </a>
+
+    <nav class="nav-principal" aria-label="Navegação principal">
+      <ul>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#loja">Loja</a></li>
+        <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="#depoimentos">Avaliações</a></li>
+        <li><a href="#localizacao">Localização</a></li>
+      </ul>
+    </nav>
+
+    <div class="cabecalho-acoes">
+      <a class="botao botao-whatsapp" href="https://wa.me/5531996506597?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Viper%20Cel%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener">
+        <svg class="icone" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+        WhatsApp
+      </a>
+      <button class="botao-menu" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-movel" id="botao-menu">
+        <svg class="icone i-menu" aria-hidden="true"><use href="#i-menu"/></svg>
+        <svg class="icone i-fechar" aria-hidden="true"><use href="#i-fechar"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="menu-movel" id="menu-movel">
+    <nav aria-label="Navegação móvel">
+      <ul>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#loja">Loja</a></li>
+        <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="#depoimentos">Avaliações</a></li>
+        <li><a href="#localizacao">Localização</a></li>
+      </ul>
+    </nav>
+    <a class="botao botao-whatsapp botao-grande botao-bloco" href="https://wa.me/5531996506597?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Viper%20Cel%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener">
+      <svg class="icone" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+      Chamar no WhatsApp
+    </a>
+  </div>
+</header>
+
+<main id="topo">
+
+  <!-- ---------- Herói ---------- -->
+  <section class="heroi">
+    <div class="heroi-fundo" aria-hidden="true"></div>
+    <div class="limite heroi-conteudo">
+      <span class="rotulo entra"><svg class="icone" aria-hidden="true"><use href="#i-mapa"/></svg> Dom Pedro · São José da Lapa – MG</span>
+
+      <h1 class="heroi-marca entra">
+        <img src="assets/logo.png" alt="Viper Cel — Assistência Técnica Especializada" width="480" height="277">
+      </h1>
+
+      <p class="heroi-tagline entra">
+        Conserto de smartphones com peças de qualidade, garantia de verdade e o
+        atendimento que os clientes do bairro Dom Pedro já conhecem. Vendemos
+        também celulares, seminovos e acessórios — tudo em um só lugar.
+      </p>
+
+      <div class="heroi-acoes entra">
+        <a class="botao botao-whatsapp botao-grande" href="https://wa.me/5531996506597?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Viper%20Cel%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener">
+          <svg class="icone" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+          Chamar no WhatsApp
+        </a>
+        <a class="botao botao-secundario botao-grande" href="tel:+5531996506597">
+          <svg class="icone" aria-hidden="true"><use href="#i-telefone"/></svg>
+          (31) 99650-6597
+        </a>
+      </div>
+
+      <div class="heroi-estatisticas entra">
+        <div class="estatistica">
+          <div class="estatistica-numero">+10</div>
+          <div class="estatistica-rotulo">Anos de mercado</div>
+        </div>
+        <div class="estatistica">
+          <div class="estatistica-numero">90</div>
+          <div class="estatistica-rotulo">Dias de garantia</div>
+        </div>
+        <div class="estatistica">
+          <div class="estatistica-numero">Todas</div>
+          <div class="estatistica-rotulo">As marcas, foco em iPhone</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Serviços ---------- -->
+  <section class="servicos" id="servicos">
+    <div class="limite">
+      <div class="cabecalho-secao entra">
+        <span class="rotulo">Assistência técnica</span>
+        <h2 class="titulo-secao">Conserto especializado em smartphones</h2>
+        <p class="descricao-secao">Diagnóstico e reparo para todas as marcas — trabalhamos com iPhone, Samsung, Xiaomi e qualquer outra. Só smartphone: é nisso que somos especialistas.</p>
+      </div>
+
+      <div class="grade grade-3 entra-grade">
+        <div class="card entra-item">
+          <div class="card-icone"><svg class="icone" aria-hidden="true"><use href="#i-tela"/></svg></div>
+          <h3>Troca de tela</h3>
+          <p>Displays e touch para as principais marcas e modelos, com instalação cuidadosa.</p>
+        </div>
+        <div class="card entra-item">
+          <div class="card-icone"><svg class="icone" aria-hidden="true"><use href="#i-bateria"/></svg></div>
+          <h3>Troca de bateria</h3>
+          <p>Celular descarregando rápido ou desligando sozinho? Trocamos com garantia.</p>
+        </div>
+        <div class="card entra-item">
+          <div class="card-icone"><svg class="icone" aria-hidden="true"><use href="#i-conector"/></svg></div>
+          <h3>Conector de carga</h3>
+          <p>Não carrega ou o cabo precisa ficar na posição certa? Resolvemos o conector.</p>
+        </div>
+        <div class="card entra-item">
+          <div class="card-icone"><svg class="icone" aria-hidden="true"><use href="#i-placa"/></svg></div>
+          <h3>Placa e componentes</h3>
+          <p>Diagnóstico e reparo de placa lógica para os casos mais delicados.</p>
+        </div>
+        <div class="card entra-item">
+          <div class="card-icone"><svg class="icone" aria-hidden="true"><use href="#i-camera"/></svg></div>
+          <h3>Câmera</h3>
+          <p>Foto borrada, câmera travando ou quebrada — trocamos o módulo.</p>
+        </div>
+        <div class="card entra-item">
+          <div class="card-icone"><svg class="icone" aria-hidden="true"><use href="#i-alto-falante"/></svg></div>
+          <h3>Áudio e alto-falante</h3>
+          <p>Chamadas com chiado, som baixo ou microfone falhando também têm conserto.</p>
+        </div>
+      </div>
+
+      <div class="servicos-nota entra">
+        <svg class="icone" aria-hidden="true"><use href="#i-check"/></svg>
+        <span><strong>Não sabe o que o seu celular tem?</strong> Manda uma mensagem que a gente avalia.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Loja ---------- -->
+  <section class="loja" id="loja">
+    <div class="limite loja-grade">
+      <div class="entra">
+        <span class="rotulo"><svg class="icone" aria-hidden="true"><use href="#i-loja"/></svg> Loja</span>
+        <h2 class="titulo-secao">Celulares, seminovos e acessórios</h2>
+
+        <span class="loja-destaque">
+          <svg class="icone" aria-hidden="true"><use href="#i-estrela"/></svg>
+          Destaque: venda de iPhone
+        </span>
+
+        <ul class="loja-lista">
+          <li>
+            <svg class="icone" aria-hidden="true"><use href="#i-check"/></svg>
+            <span><strong>iPhones</strong> novos e seminovos revisados — nosso maior destaque na loja.</span>
+          </li>
+          <li>
+            <svg class="icone" aria-hidden="true"><use href="#i-check"/></svg>
+            <span><strong>Smartphones</strong> de outras marcas, novos e seminovos.</span>
+          </li>
+          <li>
+            <svg class="icone" aria-hidden="true"><use href="#i-check"/></svg>
+            <span><strong>Acessórios</strong> — capinhas, películas, fones, carregadores e cabos.</span>
+          </li>
+        </ul>
+
+        <a class="botao botao-whatsapp botao-grande" href="https://wa.me/5531996506597?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20os%20iPhones%20dispon%C3%ADveis%20na%20loja." target="_blank" rel="noopener">
+          <svg class="icone" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+          Ver disponibilidade no WhatsApp
+        </a>
+      </div>
+
+      <div class="loja-vitrine entra">
+        <img src="assets/seminovos.jpg" alt="iPhones seminovos disponíveis na Viper Cel, em várias cores" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Diferenciais ---------- -->
+  <section id="diferenciais">
+    <div class="limite">
+      <div class="cabecalho-secao centralizado entra">
+        <span class="rotulo">Por que a Viper Cel</span>
+        <h2 class="titulo-secao">Diferenciais que fazem a diferença no bolso</h2>
+      </div>
+
+      <div class="grade grade-4 entra-grade">
+        <div class="card entra-item">
+          <div class="card-icone"><svg class="icone" aria-hidden="true"><use href="#i-medalha"/></svg></div>
+          <h3>+10 anos de mercado</h3>
+          <p>Mais de uma década atendendo o bairro Dom Pedro e região.</p>
+        </div>
+        <div class="card entra-item">
+          <div class="card-icone"><svg class="icone" aria-hidden="true"><use href="#i-escudo"/></svg></div>
+          <h3>90 dias de garantia</h3>
+          <p>Todo serviço sai com garantia — se der algo errado, voltamos a atender.</p>
+        </div>
+        <div class="card entra-item">
+          <div class="card-icone"><svg class="icone" aria-hidden="true"><use href="#i-etiqueta"/></svg></div>
+          <h3>Ótimo custo-benefício</h3>
+          <p>Peças de linha alternativa com boa procedência, para um preço mais justo no bolso.</p>
+        </div>
+        <div class="card entra-item">
+          <div class="card-icone"><svg class="icone" aria-hidden="true"><use href="#i-check"/></svg></div>
+          <h3>Todas as marcas</h3>
+          <p>iPhone, Samsung, Xiaomi e qualquer outra — sempre smartphone, sempre especializado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Depoimentos ---------- -->
+  <section class="depoimentos" id="depoimentos">
+    <div class="limite">
+      <div class="cabecalho-secao entra">
+        <span class="rotulo">Depoimentos</span>
+        <h2 class="titulo-secao">Quem já veio, aprovou</h2>
+      </div>
+
+      <div class="grade grade-3 entra-grade">
+        <div class="card depoimento-card entra-item">
+          <div class="depoimento-estrelas" aria-hidden="true">
+            <svg class="icone" aria-hidden="true"><use href="#i-estrela"/></svg>
+            <svg class="icone" aria-hidden="true"><use href="#i-estrela"/></svg>
+            <svg class="icone" aria-hidden="true"><use href="#i-estrela"/></svg>
+            <svg class="icone" aria-hidden="true"><use href="#i-estrela"/></svg>
+            <svg class="icone" aria-hidden="true"><use href="#i-estrela"/></svg>
+          </div>
+          <p class="depoimento-texto">"Atendente super gente boa, e preço muito bacana."</p>
+          <div class="depoimento-autor">
+            <div class="depoimento-avatar" aria-hidden="true">K</div>
+            <div>
+              <div class="depoimento-nome">Kaique Souza Nóbrega</div>
+              <div class="depoimento-fonte">Avaliação no Google</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card depoimento-card entra-item">
+          <div class="depoimento-estrelas" aria-hidden="true">
+            <svg class="icone" aria-hidden="true"><use href="#i-estrela"/></svg>
+            <svg class="icone" aria-hidden="true"><use href="#i-estrela"/></svg>
+            <svg class="icone" aria-hidden="true"><use href="#i-estrela"/></svg>
+            <svg class="icone" aria-hidden="true"><use href="#i-estrela"/></svg>
+            <svg class="icone" aria-hidden="true"><use href="#i-estrela"/></svg>
+          </div>
+          <p class="depoimento-texto">"Loja com variedade de produtos. Atendimento top."</p>
+          <div class="depoimento-autor">
+            <div class="depoimento-avatar" aria-hidden="true">S</div>
+            <div>
+              <div class="depoimento-nome">Sabrina Mechett</div>
+              <div class="depoimento-fonte">Avaliação no Google</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card depoimento-card entra-item">
+          <div class="depoimento-estrelas" aria-hidden="true">
+            <svg class="icone" aria-hidden="true"><use href="#i-estrela"/></svg>
+            <svg class="icone" aria-hidden="true"><use href="#i-estrela"/></svg>
+            <svg class="icone" aria-hidden="true"><use href="#i-estrela"/></svg>
+            <svg class="icone" aria-hidden="true"><use href="#i-estrela"/></svg>
+            <svg class="icone" aria-hidden="true"><use href="#i-estrela"/></svg>
+          </div>
+          <p class="depoimento-texto">"Excelente atendimento, ótimo custo-benefício. Super recomendo!"</p>
+          <div class="depoimento-autor">
+            <div class="depoimento-avatar" aria-hidden="true">D</div>
+            <div>
+              <div class="depoimento-nome">Deive Silva Guimarães</div>
+              <div class="depoimento-fonte">Avaliação no Google</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nota de implementação: não exibir nota média nem contagem de
+           avaliações até o cliente confirmar o número real (ver comentário
+           no <head>). Quando confirmado, um bom lugar é aqui embaixo, no
+           padrão "4,9 ★ · 57 avaliações no Google". -->
+      <p class="depoimentos-rodape entra">
+        <svg class="icone" aria-hidden="true"><use href="#i-estrela"/></svg>
+        <a href="https://www.google.com/maps/search/?api=1&query=Viper+Cel+Dom+Pedro+S%C3%A3o+Jos%C3%A9+da+Lapa" target="_blank" rel="noopener">Ver todas as avaliações no Google →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ---------- Localização ---------- -->
+  <section id="localizacao">
+    <div class="limite">
+      <div class="localizacao-grade">
+        <div class="entra">
+          <span class="rotulo"><svg class="icone" aria-hidden="true"><use href="#i-mapa"/></svg> Localização</span>
+          <h2 class="titulo-secao">Bairro Dom Pedro, São José da Lapa</h2>
+
+          <div class="info-lista">
+            <div class="info-item">
+              <div class="card-icone"><svg class="icone" aria-hidden="true"><use href="#i-mapa"/></svg></div>
+              <div>
+                <h3>Endereço</h3>
+                <address>
+                  Av. João Alves da Costa, 317 – Dom Pedro<br>
+                  São José da Lapa – MG, 33350-000
+                </address>
+                <p><a href="https://www.google.com/maps/search/?api=1&query=Av.+Jo%C3%A3o+Alves+da+Costa%2C+317+-+Dom+Pedro%2C+S%C3%A3o+Jos%C3%A9+da+Lapa+-+MG%2C+33350-000" target="_blank" rel="noopener">Como chegar →</a></p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="card-icone"><svg class="icone" aria-hidden="true"><use href="#i-telefone"/></svg></div>
+              <div>
+                <h3>Telefone / WhatsApp</h3>
+                <p><a href="tel:+5531996506597">(31) 99650-6597</a></p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="card-icone"><svg class="icone" aria-hidden="true"><use href="#i-relogio"/></svg></div>
+              <div>
+                <h3>Horário de funcionamento</h3>
+                <ul class="horario-tabela" id="tabela-horario">
+                  <li data-dias="1,2,3,4,5"><span>Segunda a sexta</span><span>09:00–19:00</span></li>
+                  <li data-dias="6"><span>Sábado</span><span>09:00–17:30</span></li>
+                  <li data-dias="0"><span>Domingo</span><span>09:00–12:00</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mapa-moldura entra">
+          <iframe
+            src="https://maps.google.com/maps?q=Av.+Jo%C3%A3o+Alves+da+Costa%2C+317+-+Dom+Pedro%2C+S%C3%A3o+Jos%C3%A9+da+Lapa+-+MG%2C+33350-000&z=16&output=embed"
+            title="Mapa até a Viper Cel, bairro Dom Pedro, São José da Lapa"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- CTA final ---------- -->
+  <section class="cta-final">
+    <div class="limite entra">
+      <h2 class="titulo-secao">Seu celular merece um reparo de confiança</h2>
+      <p class="descricao-secao">Chama no WhatsApp e já recebe o valor do conserto — sem enrolação.</p>
+      <div class="heroi-acoes">
+        <a class="botao botao-whatsapp botao-grande" href="https://wa.me/5531996506597?text=Ol%C3%A1%21%20Gostaria%20de%20fazer%20um%20or%C3%A7amento%20para%20o%20conserto%20do%20meu%20celular." target="_blank" rel="noopener">
+          <svg class="icone" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+          Chamar no WhatsApp
+        </a>
+        <a class="botao botao-secundario botao-grande" href="tel:+5531996506597">
+          <svg class="icone" aria-hidden="true"><use href="#i-telefone"/></svg>
+          Ligar agora
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ---------- Rodapé ---------- -->
+<footer class="rodape">
+  <div class="limite">
+    <div class="rodape-grade">
+      <div class="rodape-marca">
+        <a class="marca" href="#topo" aria-label="Viper Cel — início">
+          <img src="assets/logo-icon.png" alt="" width="30" height="30">
+          <span class="marca-texto">VIPER<span>CEL</span></span>
+        </a>
+        <p>Assistência técnica especializada em smartphones, venda de celulares, seminovos e acessórios no bairro Dom Pedro, São José da Lapa – MG.</p>
+      </div>
+
+      <nav aria-label="Navegação do rodapé">
+        <div class="rodape-titulo">Site</div>
+        <ul class="rodape-lista">
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#loja">Loja</a></li>
+          <li><a href="#diferenciais">Diferenciais</a></li>
+          <li><a href="#depoimentos">Avaliações</a></li>
+          <li><a href="#localizacao">Localização</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <div class="rodape-titulo">Contato</div>
+        <ul class="rodape-lista">
+          <li><a href="tel:+5531996506597">(31) 99650-6597</a></li>
+          <li><a href="https://wa.me/5531996506597" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Viper+Cel+Dom+Pedro+S%C3%A3o+Jos%C3%A9+da+Lapa" target="_blank" rel="noopener">Google Maps</a></li>
+          <!-- Instagram/Facebook: adicionar aqui assim que o cliente enviar os links -->
+        </ul>
+      </div>
+    </div>
+
+    <div class="rodape-base">
+      <span>© <span id="ano-atual">2026</span> Viper Cel. Todos os direitos reservados.</span>
+      <span>Av. João Alves da Costa, 317 – Dom Pedro, São José da Lapa – MG</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ---------- Barra fixa de WhatsApp (mobile) ---------- -->
+<div class="barra-whatsapp">
+  <a class="botao botao-whatsapp" href="https://wa.me/5531996506597?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Viper%20Cel%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener">
+    <svg class="icone" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+    Chamar no WhatsApp
+  </a>
+</div>
+
+<script>
+(function () {
+  // cabeçalho sólido ao rolar
+  var cab = document.getElementById('cabecalho');
+  var checar = function () {
+    if (window.scrollY > 8) cab.classList.add('rolou');
+    else cab.classList.remove('rolou');
+  };
+  checar();
+  window.addEventListener('scroll', checar, { passive: true });
+
+  // menu móvel
+  var botaoMenu = document.getElementById('botao-menu');
+  var menu = document.getElementById('menu-movel');
+  botaoMenu.addEventListener('click', function () {
+    var aberto = document.body.classList.toggle('menu-aberto');
+    botaoMenu.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+  });
+  menu.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      document.body.classList.remove('menu-aberto');
+      botaoMenu.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // destaca o dia de hoje na tabela de horário
+  var hoje = new Date().getDay(); // 0 = domingo
+  document.querySelectorAll('#tabela-horario li').forEach(function (li) {
+    var dias = (li.getAttribute('data-dias') || '').split(',');
+    if (dias.indexOf(String(hoje)) !== -1) li.classList.add('hoje');
+  });
+
+  // ano no rodapé
+  var anoEl = document.getElementById('ano-atual');
+  if (anoEl) anoEl.textContent = new Date().getFullYear();
+
+  // revela seções ao rolar (com fallback: reduced-motion já tratado no head)
+  if ('IntersectionObserver' in window && document.documentElement.classList.contains('js-anim')) {
+    var obs = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('visivel');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.entra, .entra-grade').forEach(function (el) { obs.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>
