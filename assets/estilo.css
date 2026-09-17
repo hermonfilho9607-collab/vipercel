@@ -276,6 +276,27 @@ section { padding: var(--space-3xl, 6rem) 0; }
   mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black, transparent 75%);
 }
 
+/* Imagem de produto à direita — equilibra a logo (esquerda) com peso visual
+   do outro lado, igual à referência automotiva. Some sozinha se o arquivo
+   ainda não existir (background-image falho não quebra nada); ativa assim
+   que assets/foto-heroi.jpg existir. Só em telas largas — no mobile a logo
+   e o texto já preenchem a tela sozinhos, ver [[proporção mobile]]. */
+.heroi-imagem {
+  position: absolute; top: 0; right: 0; bottom: 0; z-index: -1;
+  width: min(50%, 620px);
+  background-image: url('foto-heroi.jpg');
+  background-size: cover;
+  background-position: center;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 32%);
+  mask-image: linear-gradient(to right, transparent 0%, black 32%);
+}
+.heroi-imagem::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, var(--fundo) 0%, transparent 28%);
+}
+@media (max-width: 959px) { .heroi-imagem { display: none; } }
+
 .heroi-conteudo { display: flex; flex-direction: column; gap: 28px; }
 @media (max-width: 599px) { .heroi-conteudo { gap: 18px; } }
 

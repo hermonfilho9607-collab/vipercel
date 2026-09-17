@@ -24,11 +24,10 @@
        2. Redes sociais: cliente não passou Instagram/Facebook. O rodapé só
           linka pro Google Maps por enquanto (dado real). Adicionar quando
           tiver.
-       3. Fotografia: cliente vai gerar com IA e anexar depois (ver prompts
-          entregues à parte). Hoje o herói usa a logo (assets/logo.png,
-          fundo removido) + gradiente; a seção Loja tem UMA vitrine com
-          moldura pronta pra receber foto (ver comentário HTML na seção
-          .loja-vitrine). Trocar por <img> quando os arquivos existirem.
+       3. Fotografia: herói (assets/foto-heroi.jpg) e vitrine da loja
+          (assets/seminovos.jpg) já resolvidos com imagens reais/geradas.
+          Ainda dá pra adicionar uma foto na seção Serviços se um dia
+          quiserem — ver PROMPTS-IMAGENS.md, prompt 3.
        4. og:url / sitemap.xml / robots.txt apontam para
           "https://vipercel.vercel.app" como placeholder de domínio — trocar
           se o projeto for publicado em outro domínio.
@@ -164,6 +163,7 @@
   <!-- ---------- Herói ---------- -->
   <section class="heroi">
     <div class="heroi-fundo" aria-hidden="true"></div>
+    <div class="heroi-imagem" aria-hidden="true"></div>
     <div class="limite heroi-conteudo">
       <span class="rotulo entra"><svg class="icone" aria-hidden="true"><use href="#i-mapa"/></svg> Dom Pedro · São José da Lapa – MG</span>
 

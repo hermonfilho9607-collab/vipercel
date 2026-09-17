@@ -35,27 +35,26 @@ no text, no logos, no hands. 4:3 aspect ratio.
 
 ---
 
-## 2. Fundo do herói — opcional, mas é o que mais aproxima do estilo da referência
+## 2. Imagem do herói — ✅ já resolvido
 
-**Onde entra:** topo do site, atrás da logo. Ver instrução de código abaixo.
+Você gerou (`assets/hero.png`) e eu converti pra `assets/foto-heroi.jpg`
+(93% menor, mesma qualidade visível) e já está no ar, posicionada à direita
+do herói com um degradê suave nas bordas. Não precisa gerar de novo. Prompt
+abaixo fica só como referência.
 
 ```
-Cinematic product photography of a single modern smartphone floating at a slight
-angle against a near-black background, dramatic rim lighting in electric blue
-(#3358E8 to #6C8CFF) along the left edge of the phone, screen off or showing a
-subtle blue glow. Wide empty dark space on the right two-thirds of the frame for
-text overlay. Automotive-advertisement lighting style, high-end, moody, shallow
-depth of field, very dark background with a soft blue glow gradient. No text, no
-hands, no logos. 21:9 wide aspect ratio.
+Cinematic product photography of a single modern smartphone floating at a
+slight angle, positioned in the upper-right two-thirds of the frame. Deep
+black background fading to pure black toward the left and bottom edges.
+Dramatic rim lighting in electric blue (#3358E8 to #6C8CFF) tracing the
+right edge and top of the phone, screen off or showing a faint blue glow
+reflection. Shallow depth of field, subtle floating dust or light particles,
+ultra-premium studio photography, automotive-advertisement lighting style —
+moody, high-contrast, minimal. Portrait orientation, 4:5 aspect ratio. No
+text, no hands, no logos, no watermark.
 ```
 
-**Negativo:** `busy background, multiple objects, bright even lighting, warm tones, text, watermark`
-
-**Como ativar depois de gerar (arquivo `assets/foto-heroi.jpg`):** abra
-`assets/estilo.css`, ache a regra `.heroi-fundo` e adicione
-`background-image: url('foto-heroi.jpg');` junto com `background-size: cover;
-background-position: center;` — o gradiente que já existe continua servindo de
-"moldura" nas bordas da foto.
+**Negativo:** `cluttered background, multiple objects, bright even lighting, warm/orange tones, text, watermark, logo, subject in bottom-left corner`
 
 ---
 

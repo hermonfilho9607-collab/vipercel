@@ -29,8 +29,12 @@ foram entregues separadamente (mesma iluminação da referência: fundo quase
 preto, luz de borda azul, produto em destaque).
 
 Hoje:
-- **Herói:** a própria logo (fundo removido) sobre um gradiente azul — não
-  depende de foto nenhuma.
+- **Herói:** a logo (fundo removido) + a foto gerada por IA
+  (`assets/foto-heroi.jpg`, um smartphone com luz de borda azul) posicionada
+  à direita, atrás do conteúdo, com um degradê suave nas bordas esquerda e
+  inferior pra não brigar com o texto. Some sozinha em telas estreitas
+  (celular) — lá a logo e o texto já preenchem bem o espaço. Original em alta
+  arquivado em `../fotos-originais/vipercel-hero-original.png`.
 - **Seção Loja:** já tem a foto real que você mandou (`assets/seminovos.jpg`,
   os iPhones seminovos). Eu escureci e apliquei uma vinheta nela pra combinar
   com o resto do site (estava clara demais, fundo de madeira quente — destoava
