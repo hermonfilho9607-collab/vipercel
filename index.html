@@ -164,6 +164,7 @@
   <section class="heroi">
     <div class="heroi-fundo" aria-hidden="true"></div>
     <div class="heroi-imagem" aria-hidden="true"></div>
+    <div class="heroi-brilho" aria-hidden="true"></div>
     <div class="limite heroi-conteudo">
       <span class="rotulo entra"><svg class="icone" aria-hidden="true"><use href="#i-mapa"/></svg> Dom Pedro · São José da Lapa – MG</span>
 
@@ -572,6 +573,70 @@
     }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
     document.querySelectorAll('.entra, .entra-grade').forEach(function (el) { obs.observe(el); });
   }
+})();
+
+// Flutuação + inclinação 3D da foto do herói, seguindo o mouse — pausa sob
+// prefers-reduced-motion e nem inicia fora de telas largas (onde a imagem
+// já fica oculta no CSS).
+(function () {
+  var heroi = document.querySelector('.heroi');
+  var imagem = document.querySelector('.heroi-imagem');
+  var brilho = document.querySelector('.heroi-brilho');
+  if (!heroi || !imagem) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!window.matchMedia('(min-width: 960px)').matches) return;
+
+  var temMouse = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var alvoX = 0, alvoY = 0, atualX = 0, atualY = 0;
+  var mouseX = 0, mouseY = 0, moveu = false;
+  var rect = null;
+
+  // Só leitura de layout (getBoundingClientRect) ao entrar/redimensionar —
+  // nunca dentro do mousemove, pra não forçar recálculo a cada evento.
+  // O mousemove em si só guarda números; quem escreve no DOM é o rAF
+  // abaixo, uma vez por quadro, não uma vez por evento.
+  if (temMouse) {
+    heroi.addEventListener('mouseenter', function () { rect = heroi.getBoundingClientRect(); });
+    window.addEventListener('resize', function () {
+      if (heroi.matches(':hover')) rect = heroi.getBoundingClientRect();
+    }, { passive: true });
+
+    heroi.addEventListener('mousemove', function (e) {
+      if (!rect) rect = heroi.getBoundingClientRect();
+      alvoX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+      alvoY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+      mouseX = e.clientX - rect.left;
+      mouseY = e.clientY - rect.top;
+      moveu = true;
+    });
+    heroi.addEventListener('mouseleave', function () {
+      alvoX = 0; alvoY = 0; moveu = false;
+      heroi.classList.remove('brilho-ativo');
+    });
+  }
+
+  var t0 = performance.now();
+  function quadro(t) {
+    var tempo = (t - t0) / 1000;
+    var flutuar = Math.sin(tempo * 0.6) * 8;
+    var giro = Math.sin(tempo * 0.6) * 1.2;
+
+    atualX += (alvoX - atualX) * 0.06;
+    atualY += (alvoY - atualY) * 0.06;
+
+    imagem.style.transform =
+      'translateY(' + flutuar.toFixed(2) + 'px) rotateZ(' + giro.toFixed(2) + 'deg) ' +
+      'perspective(1200px) rotateX(' + (-atualY * 4).toFixed(2) + 'deg) rotateY(' + (atualX * 6).toFixed(2) + 'deg)';
+
+    if (moveu && brilho) {
+      heroi.style.setProperty('--mx', mouseX.toFixed(1) + 'px');
+      heroi.style.setProperty('--my', mouseY.toFixed(1) + 'px');
+      heroi.classList.add('brilho-ativo');
+    }
+
+    requestAnimationFrame(quadro);
+  }
+  requestAnimationFrame(quadro);
 })();
 </script>
 </body>

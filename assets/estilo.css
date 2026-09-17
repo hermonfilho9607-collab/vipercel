@@ -289,12 +289,36 @@ section { padding: var(--space-3xl, 6rem) 0; }
   background-position: center;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 32%);
   mask-image: linear-gradient(to right, transparent 0%, black 32%);
+  will-change: transform;
 }
 .heroi-imagem::after {
   content: "";
   position: absolute; inset: 0;
   background: linear-gradient(to top, var(--fundo) 0%, transparent 28%);
 }
+
+/* Brilho que segue o cursor — mesma ideia de um componente "Spotlight" de
+   React (motion + posição do mouse), só que em CSS/JS puro pra não trazer
+   framework nenhum pra um site estático. Some fora de telas com mouse e
+   sob prefers-reduced-motion (ver script no final do <body>).
+   Otimização: bolha de tamanho fixo movida por transform (só recompõe a
+   camada, não repinta) em vez de mover o centro de um gradiente do
+   tamanho do herói inteiro (isso forçaria repintura grande a cada frame
+   do mouse). Mesma técnica do componente de referência. */
+.heroi-brilho {
+  position: absolute; top: 0; left: 0; z-index: -1;
+  width: 480px; height: 480px; margin: -240px 0 0 -240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(108,140,255,.28), transparent 70%);
+  filter: blur(8px);
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(var(--mx, 0px), var(--my, 0px));
+  transition: opacity 300ms ease;
+  will-change: transform;
+}
+.heroi.brilho-ativo .heroi-brilho { opacity: 1; }
+@media (hover: none), (max-width: 959px) { .heroi-brilho { display: none; } }
 @media (max-width: 959px) { .heroi-imagem { display: none; } }
 
 .heroi-conteudo { display: flex; flex-direction: column; gap: 28px; }
